@@ -8,7 +8,9 @@ function APOD({ data }) {
       {data.map((apod, i) => {
         return (
           <div className={styles.apodCard}>
-            <h1>Test</h1>
+            <h1>{apod.title}</h1>
+            {apod.url.match(/[\/.](gif|jpg|jpeg|tiff|png)$/i) ? <img src={apod.url} alt={apod.title} /> : <iframe src={apod.url}></iframe>}
+            <p>{apod.explanation}</p>
           </div>
         );
       })}
