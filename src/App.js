@@ -1,30 +1,53 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from './App.module.css';
-import APOD from './APOD/APOD';
+import style from './App.module.css';
+import Photos from './Photos/Photos';
 
-const BASE_URL = 'https://api.nasa.gov/planetary/apod';
+const BASE_URL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos';
 
 function App() {
   const [data, setData] = useState([]);
-  const currDate = new Date();
-  const endDate = `${currDate.getFullYear()}-${('0' + currDate.getMonth()).slice(-2)}-${('0' + currDate.getDate()).slice(-2)}`;
-  console.log(endDate);
+  const [currPage, setCurrPage] = useState(1);
+
   useEffect(() => {
     axios
-      .get(
-        // `${BASE_URL}?start_date=2021-05-05?end_date=${endDate}?api_key=${process.env.REACT_APP_API_KEY}&start_date=2017-07-08&end_date=2017-07-10&count=9`
-        `${BASE_URL}?api_key=${process.env.REACT_APP_API_KEY}&start_date=2021-08-01&end_date=${endDate}`
-      )
-      .then(res => setData(res.data))
+      .get(`${BASE_URL}?sol=1000&page=${currPage}&api_key=${process.env.REACT_APP_API_KEY}`)
+      .then(res => {
+        setData(res.data.photos);
+      })
       .catch(err => console.error(err));
-  }, []);
+  }, [currPage]);
 
-  return (
-    <div className={styles.container}>
-      <APOD data={data} />
-    </div>
-  );
+  const prevPage = e => {
+    e.preventDefault();
+    setCurrPage(currPage - 1);
+  };
+
+  const nextPage = e => {
+    e.preventDefault();
+    setCurrPage(currPage + 1);
+  };
+
+  if (!data) {
+    return (
+      <div className={style.loadingContainer}>
+        <h1>Loading...</h1>
+      </div>
+    );
+  } else {
+    return (
+      <div className={style.container}>
+        <h1>Mars Rover Photos</h1>
+        <Photos data={data} />
+        <nav>
+          <button onClick={prevPage} disabled={currPage === 1}>
+            Previous
+          </button>
+          <button onClick={nextPage}>Next</button>
+        </nav>
+      </div>
+    );
+  }
 }
 
 export default App;
