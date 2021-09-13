@@ -46,12 +46,17 @@ function App() {
     return (
       <div className={style.container}>
         <header>
-          <h1>Mars Rover Photos</h1>
+          <section className={style.headDescription}>
+            <h1>Mars Rover Photos</h1>
+            <a href='#nav' className={style.cta}>
+              View Photos
+            </a>
+          </section>
           <ScrollRotate method={'perc'}>
             <img src={mars} alt='the planet mars' className={style.marsHeader} />
           </ScrollRotate>
         </header>
-        <nav>
+        <nav id='nav'>
           <p>Current Page: {currPage}</p>
           <img src={marsRotation} alt='mars continuously rotating' className={style.marsRotation} />
           <div className='btns'>
@@ -64,6 +69,16 @@ function App() {
           </div>
         </nav>
         <Photos data={data} />
+        <footer>
+          <span>Developed by:</span>{' '}
+          <a href='https://www.elijahdaniel.dev' target='_blank' rel='noreferrer'>
+            elijahdaniel
+          </a>{' '}
+          | API:{' '}
+          <a href='https://api.nasa.gov/' target='_blank' rel='noreferrer'>
+            NASA - Mars Rover Photos
+          </a>
+        </footer>
       </div>
     );
   }

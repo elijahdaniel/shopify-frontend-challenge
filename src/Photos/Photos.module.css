@@ -36,6 +36,10 @@
   padding: 20px;
 }
 
+.cardDetails h3 {
+  color: #450000;
+}
+
 .cardDetails p {
   text-transform: capitalize;
 }

@@ -12,8 +12,9 @@
 html,
 body {
   scroll-behavior: smooth;
-  /* background: #000; */
-  background: linear-gradient(to bottom right, #450000 5%, #000000 45%);
+  background-color: #000;
+  background-image: url('./assets/741514.jpg');
+  background-size: 50%;
 }
 
 nav {
@@ -42,6 +43,46 @@ header {
   align-items: center;
   justify-content: center;
   color: white;
+  background: linear-gradient(to bottom right, #450000 5%, #00000000 45%);
+}
+
+header h1 {
+  font-size: 50px;
+}
+
+.headDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta {
+  background: #540101;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 20px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.3s ease;
+}
+
+@media (max-width: 1137px) {
+  header {
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
+
+  .cta {
+    align-self: center;
+  }
+}
+
+.cta:hover {
+  background: #450000;
 }
 
 .marsHeader {
@@ -79,4 +120,17 @@ nav button:disabled {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+}
+
+footer {
+  color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+footer a {
+  color: #540101;
+  font-weight: 700;
+  text-decoration: none;
 }
