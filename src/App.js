@@ -1,7 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import style from './App.module.css';
+import { ScrollRotate } from 'react-scroll-rotate';
+
 import Photos from './Photos/Photos';
+
+import chevLeft from './assets/chevron-left.svg';
+import chevRight from './assets/chevron-right.svg';
+import marsRotation from './assets/mars-rotation.gif';
+import mars from './assets/mars.png';
+
+import style from './App.module.css';
 
 const BASE_URL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos';
 
@@ -37,14 +45,25 @@ function App() {
   } else {
     return (
       <div className={style.container}>
-        <h1>Mars Rover Photos</h1>
-        <Photos data={data} />
+        <header>
+          <h1>Mars Rover Photos</h1>
+          <ScrollRotate method={'perc'}>
+            <img src={mars} alt='the planet mars' className={style.marsHeader} />
+          </ScrollRotate>
+        </header>
         <nav>
-          <button onClick={prevPage} disabled={currPage === 1}>
-            Previous
-          </button>
-          <button onClick={nextPage}>Next</button>
+          <p>Current Page: {currPage}</p>
+          <img src={marsRotation} alt='mars continuously rotating' className={style.marsRotation} />
+          <div className='btns'>
+            <button onClick={prevPage} disabled={currPage === 1}>
+              <img src={chevLeft} alt='previous page' />
+            </button>
+            <button onClick={nextPage}>
+              <img src={chevRight} alt='next page' />
+            </button>
+          </div>
         </nav>
+        <Photos data={data} />
       </div>
     );
   }

@@ -1,24 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Urbanist', sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  /* background: #000; */
+  background: linear-gradient(to bottom right, #450000 5%, #000000 45%);
 }
 
 nav {
-  position: fixed;
-  bottom: 0;
-  height: 30px;
+  position: sticky;
+  top: 0;
+  height: 60px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px 12px;
+  background: #000;
+}
+
+nav p {
+  color: white;
+}
+
+.marsRotation {
+  width: 70px;
+}
+
+header {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.796);
+  color: white;
+}
+
+.marsHeader {
+  width: 600px;
 }
 
 nav button {
-  padding: 5px 20px;
+  padding: 4px 20px;
+  background: #450000;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+nav button img {
+  width: 33px;
+}
+
+nav button:hover {
+  background: #540101;
+}
+
+nav button:disabled {
+  opacity: 0.4;
 }
 
 .loadingContainer {
