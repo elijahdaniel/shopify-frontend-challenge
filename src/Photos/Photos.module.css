@@ -10,14 +10,26 @@
   width: 440px;
   background: whitesmoke;
   margin: 10px;
-  height: 500px;
+  height: 550px;
+  position: relative;
+  border: 1px solid #380404;
 }
 
 .photoCard img {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border: 1px solid rgb(80, 80, 80);
+}
+
+.itemNum {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  background: #380404;
+  padding: 5px 10px;
+  text-align: center;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 @media (max-width: 1396px) {
@@ -37,9 +49,19 @@
 }
 
 .cardDetails h3 {
-  color: #450000;
+  background: #850909;
+  color: white;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .cardDetails p {
   text-transform: capitalize;
+  padding-left: 5px;
+}
+
+.rover {
+  margin-bottom: 10px;
 }
