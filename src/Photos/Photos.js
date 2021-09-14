@@ -1,9 +1,21 @@
+import { useState } from 'react';
+
+import unlikedHeart from '../assets/unliked.svg';
+import likedHeart from '../assets/liked.svg';
+
 import style from './Photos.module.css';
 
-function Photos({ data }) {
+function Photos({ data, savedIndex, setSavedIndex }) {
+  const handleClick = index => {
+    setSavedIndex(state => ({
+      ...state,
+      [index]: !state[index],
+    }));
+  };
+
   return (
     <div className={style.photoGrid}>
-      {data.map(mrp => {
+      {data.map((mrp, i) => {
         return (
           <div className={style.photoCard} key={mrp.id}>
             <img src={mrp.img_src} alt={mrp.rover.name} />
@@ -30,6 +42,11 @@ function Photos({ data }) {
                   <b>Name:</b> {mrp.camera.full_name} ({mrp.camera.name})
                 </p>
               </section>
+            </section>
+            <section className={style.likePhoto}>
+              <button onClick={() => handleClick(i)}>
+                {!savedIndex[i] ? <img src={unlikedHeart} alt='unliked heart' /> : <img src={likedHeart} alt='liked heart' />}
+              </button>
             </section>
           </div>
         );

@@ -16,6 +16,10 @@ const BASE_URL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photo
 function App() {
   const [data, setData] = useState([]);
   const [currPage, setCurrPage] = useState(1);
+  const [savedIndex, setSavedIndex] = useState({});
+
+  const itemsPerPage = data.slice(0, 12);
+  // console.log(itemsPerPage);
 
   useEffect(() => {
     axios
@@ -68,7 +72,7 @@ function App() {
             </button>
           </div>
         </nav>
-        <Photos data={data} />
+        <Photos data={itemsPerPage} savedIndex={savedIndex} setSavedIndex={setSavedIndex} />
         <footer>
           <span>Developed by:</span>{' '}
           <a href='https://www.elijahdaniel.dev' target='_blank' rel='noreferrer'>
@@ -76,7 +80,7 @@ function App() {
           </a>{' '}
           | API:{' '}
           <a href='https://api.nasa.gov/' target='_blank' rel='noreferrer'>
-            NASA - Mars Rover Photos
+            NASA Mars Rover Photos
           </a>
         </footer>
       </div>

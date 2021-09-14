@@ -10,7 +10,7 @@
   width: 440px;
   background: whitesmoke;
   margin: 10px;
-  height: 550px;
+  height: 520px;
   position: relative;
   border: 1px solid #380404;
 }
@@ -64,4 +64,22 @@
 
 .rover {
   margin-bottom: 10px;
+}
+
+.likePhoto {
+  padding: 0 0 0 20px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.likePhoto button {
+  background: transparent;
+  cursor: pointer;
+}
+
+.likePhoto button img {
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
 }

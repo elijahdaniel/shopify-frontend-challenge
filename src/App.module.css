@@ -44,11 +44,13 @@ header {
   align-items: center;
   justify-content: center;
   color: white;
-  background: linear-gradient(to bottom right, #450000 5%, #00000000 45%);
+  background: radial-gradient(circle, #450000 1%, #00000000 45%);
+  background-position: center center;
 }
 
 header h1 {
   font-size: 50px;
+  margin-bottom: 10px;
 }
 
 .headDescription {
@@ -57,14 +59,14 @@ header h1 {
 }
 
 .cta {
-  background: #540101;
+  background: #7a0808;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
-  padding: 20px 50px;
+  padding: 18px 40px;
   border-radius: 5px;
   cursor: pointer;
   align-self: flex-start;
@@ -90,7 +92,7 @@ header h1 {
 }
 
 .cta:hover {
-  background: #450000;
+  background: #7a0808;
 }
 
 .marsHeader {
@@ -99,7 +101,7 @@ header h1 {
 
 nav button {
   padding: 4px 20px;
-  background: #450000;
+  background: #850909;
   cursor: pointer;
   transition: background 0.3s ease, opacity 0.3s ease;
 }
@@ -109,7 +111,7 @@ nav button img {
 }
 
 nav button:hover {
-  background: #540101;
+  background: #7a0808;
 }
 
 nav button:disabled {
@@ -138,7 +140,8 @@ footer {
 }
 
 footer a {
-  color: #540101;
+  color: #920000;
   font-weight: 700;
+  letter-spacing: 0.5px;
   text-decoration: none;
 }
