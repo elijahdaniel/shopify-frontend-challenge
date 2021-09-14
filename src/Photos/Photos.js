@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import unlikedHeart from '../assets/unliked.svg';
 import likedHeart from '../assets/liked.svg';
 
